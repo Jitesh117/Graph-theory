@@ -30,29 +30,34 @@ int main()
     bool mstSet[n];
     int key[n];
 
-    for(int i = 0;i<n;i++)
-        mstSet[i]=false,key[i] = INT_MAX;
-    key[0] = 0;
-    parent[0] = -1;
-    int result =0;
-    for(int count = 0;count<n-1;count++)
-    {
-        int mini = INT_MAX,u;
-        for(int v = 0;v<n;v++)
-        {
-            if(key[v]<mini and mstSet[v] == false)
-                mini = key[v],u = v;
-        }
-        mstSet[u] = true;
-        for(auto it: adj[u])
-        {   
-            int weight = it.second;
+    for (int i = 0; i < n; i++) 
+        key[i] = INT_MAX, mstSet[i] = false; 
+    key[0] = 0; 
+    parent[0] = -1; 
+    int ansWeight = 0;
+    for (int count = 0; count < n - 1; count++)
+    { 
+        
+        int mini = INT_MAX, u; 
+  
+        for (int v = 0; v < n; v++) 
+{
+            if (mstSet[v] == false && key[v] < mini) 
+                mini = key[v], u = v; 
+}
+                 mstSet[u] = true; 
+        
+        for (auto it : adj[u]) {
             int v = it.first;
-            if(weight<key[v] and mstSet[v] == false)
-                parent[v] = u,key[v] =weight;
+            int weight = it.second;
+            if (mstSet[v] == false && weight < key[v]) 
+                parent[v] = u, key[v] = weight; 
         }
-        for(int i =1;i<n;i++)
-            cout << parent[i] << "->" <<i <<endl;
-    }
+            
+    } 
+    
+    
+    for (int i = 1; i < n; i++) 
+        cout << parent[i] << " - " << i <<" \n"; 
     return 0;
 }

@@ -41,10 +41,10 @@ int main()
         int mini = INT_MAX, u; 
   
         for (int v = 0; v < n; v++) 
-{
+        {
             if (mstSet[v] == false && key[v] < mini) 
                 mini = key[v], u = v; 
-}
+        }
                  mstSet[u] = true; 
         
         for (auto it : adj[u]) {

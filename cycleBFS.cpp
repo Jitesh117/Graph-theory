@@ -32,6 +32,7 @@ bool iscycle(int V, vector<int> adj[], vector<int> &vis)
                 return true;
         }
     }
+    return false;
 }
 int main()
 {

@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
-bool checkcycle(int node, vector<int> vis, vector<int> dfsvis, vector<int> adj[])
+bool checkcycle(int src, vector<int> vis, vector<int> dfsvis, vector<int> adj[])
 {
-    vis[node] = 1;
-    dfsvis[node] = 1;
-    for (auto it : adj[node])
+    vis[src] = 1;
+    dfsvis[src] = 1;
+    for (auto it : adj[src])
     {
         if (!vis[it])
         {
@@ -14,16 +14,30 @@ bool checkcycle(int node, vector<int> vis, vector<int> dfsvis, vector<int> adj[]
         else if (dfsvis[it])
             return true;
     }
-    dfsvis[node] = 0;
+    dfsvis[src] = 0;
     return false;
 }
-bool cycle(int n, vector<int> adj[])
+bool iscycle(int n, vector<int> adj[])
 {
-    vector<int> vis(n, 0);
-    vector<int> dfsvis(n, 0);
-    for (int i = 0; i < n; i++)
+    vector<int> vis(n + 1, 0);
+    vector<int> dfsvis(n + 1, 0);
+    for (int i = 1; i <= n; i++)
+    {
         if (!vis[i])
             if (checkcycle(i, vis, dfsvis, adj))
                 return true;
+    }
     return false;
+}
+int main()
+{
+    int n;
+    cout << "Enter number of nodes: ";
+    cin >> n;
+    vector<int> adj[] = {{}, {2}, {3}, {4, 6}, {5}, {}, {5}, {2, 8}, {9}, {7}};
+    if (iscycle(n, adj))
+        cout << "Cycle detected";
+    else
+        cout << "No cycle";
+    return 0;
 }

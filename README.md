@@ -18,3 +18,8 @@
 * DFS can be used with the help of a stack data structure.
 * BFS is more efficient in finding topological sorted order due to its iterative nature.
 
+## Dijksta's algoroithm :
+* A priority queue is used for storing the updated distances and source nodes.
+* A distance array initialised to infinity is used to store the shortest distances of each vertex.
+* Basically a greedy algorithm.
+

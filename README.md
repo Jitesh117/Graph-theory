@@ -16,3 +16,5 @@
 ## Topological sorting :
 * Linear ordering of vertices such that if there is an edge u->v, u appears before v in that ordering.
 * DFS can be used with the help of a stack data structure.
+* BFS is more efficient in finding topological sorted order due to its iterative nature.
+

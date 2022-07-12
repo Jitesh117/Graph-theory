@@ -20,12 +20,12 @@ int main()
     vector<int> dist(n + 1, INT_MAX);
 
     dist[source] = 0;
-    pq.push({0, source});
+    pq.push({source,0});
 
     while (!pq.empty())
     {
-        int prev = pq.top().second;
-        int distance = pq.top().first;
+        int prev = pq.top().first;
+        int distance = pq.top().second;
         pq.pop();
         for (auto it = g[prev].begin(); it != g[prev].end(); it++)
         {
@@ -34,7 +34,7 @@ int main()
             if (dist[next] > dist[prev] + nextdist)
             {
                 dist[next] = dist[prev] + nextdist;
-                pq.push({dist[next], next});
+                pq.push({next,dist[next]});
             }
         }
     }

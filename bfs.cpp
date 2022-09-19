@@ -12,7 +12,7 @@ vector<int> bfsofgraph(int V, vector<int> adj[])
             queue<int> q;
             q.push(i);
             vis[i] = 1;
-            while (!q.empty())
+            while (q.size())
             {
                 int node = q.front();
                 q.pop();
@@ -27,6 +27,7 @@ vector<int> bfsofgraph(int V, vector<int> adj[])
                 }
             }
         }
+
     }
     return bfs;
 }

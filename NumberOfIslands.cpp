@@ -44,6 +44,9 @@ public:
                 {
                     int nrow = row + delrow;
                     int ncol = col + delcol;
+                    // if the land parts are to be adjacent only horizontally and vertically
+                    if ((delrow == -1 && delcol == -1) || (delrow == -1 && delcol == 1) || (delrow == 1 && delcol == -1) || (delrow == 1 && delcol == 1))
+                        continue;
                     if (nrow >= 0 and nrow < n and ncol >= 0 and ncol < m and grid[nrow][ncol] == '1' and !vis[nrow][ncol])
                     {
                         vis[nrow][ncol] = 1;

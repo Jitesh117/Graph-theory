@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
-bool checkcycle(int src, vector<int> vis, vector<int> dfsvis, vector<int> adj[])
+bool checkcycle(int source, vector<int> vis, vector<int> dfsvis, vector<int> adj[])
 {
-    vis[src] = 1;
-    dfsvis[src] = 1;
-    for (auto it : adj[src])
+    vis[source] = 1;
+    dfsvis[source] = 1;
+    for (auto it : adj[source])
     {
         if (!vis[it])
         {
@@ -14,7 +14,7 @@ bool checkcycle(int src, vector<int> vis, vector<int> dfsvis, vector<int> adj[])
         else if (dfsvis[it])
             return true;
     }
-    dfsvis[src] = 0;
+    dfsvis[source] = 0;
     return false;
 }
 bool iscycle(int n, vector<int> adj[])

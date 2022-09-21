@@ -8,7 +8,7 @@ bool checkcycle(int s, int V, vector<int> adj[], vector<int> &vis)
     while(!q.empty())
     {
         int node = q.front().first;
-        int par = q.front().second;
+        int parent = q.front().second;
         q.pop();
         for(auto it:adj[node])
         {
@@ -17,7 +17,7 @@ bool checkcycle(int s, int V, vector<int> adj[], vector<int> &vis)
                 q.push({it, node});
                 vis[it] = 1;
             }
-            else if(it!=par)
+            else if(it!=parent)
                 return true;
         }
     }

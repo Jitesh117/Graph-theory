@@ -1,5 +1,7 @@
 // First step: write down the in-degree of each node
 // Use a queue to store the nodes
+// reduce the indegree of each adjacent node 
+// keep removing the nodes which have indegree = 0
 #include <bits/stdc++.h>
 using namespace std;
 vector<int> toposortBFS(int n, vector<int> adj[])

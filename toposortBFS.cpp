@@ -1,5 +1,5 @@
 // First step: write down the in-degree of each node
-// Use a queue to store the nodes
+// Use a queue to store the nodes whose indegree is zero
 // reduce the indegree of each adjacent node 
 // keep removing the nodes which have indegree = 0
 #include <bits/stdc++.h>
